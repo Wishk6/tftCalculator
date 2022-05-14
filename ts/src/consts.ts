@@ -54,24 +54,14 @@ export const kGamesFeatures = new Map<number, string[]>([
   [
     5426,
     [
-      'counters',
-      'match_info',
       'me',
-      'roster',
+
       'store',
+  
       'board',
-      'bench',
-      'carousel',
-      'live_client_data',
-      'augments',
-      'matchState',
+      // 'bench', // not working ?
+      // 'carousel',// not working ?
       'match_info',
-      'local_player_damage',
-      'gold',
-      'summoner_info', //  voir si que lol 
-      'gameMode',
-      'announcer',
-      'damage',
     ]
   ],
   // Escape From Tarkov

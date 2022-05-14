@@ -9,11 +9,6 @@ import { kHotkeys, kWindowNames, kGamesFeatures } from "../consts";
 
 import WindowState = overwolf.windows.WindowStateEx;
 
-// The window displayed in-game while a game is running.
-// It listens to all info events and to the game events listed in the consts.ts file
-// and writes them to the relevant log using <pre> tags.
-// The window also sets up Ctrl+F as the minimize/restore hotkey.
-// Like the background window, it also implements the Singleton design pattern.
 class InGame extends AppWindow {
   private static _instance: InGame;
   private _gameEventsListener: OWGamesEvents;
@@ -57,24 +52,19 @@ class InGame extends AppWindow {
   }
 
   private onInfoUpdates(info) {
+    console.log("test");
     this.logLine(this._infoLog, info, false);
   }
 
   // Special events will be highlighted in the event log
   private onNewEvents(e) {
+   
     const shouldHighlight = e.events.some(event => {
+
       switch (event.name) {
-        case 'kill':
-        case 'death':
-        case 'assist':
-        case 'level':
-        case 'matchStart':
-        case 'match_start':
-        case 'matchEnd':
-        case 'match_end':
+        case 'gold':
           return true;
       }
-
       return false
     });
     this.logLine(this._eventsLog, e, shouldHighlight);
@@ -111,6 +101,7 @@ class InGame extends AppWindow {
   // Appends a new line to the specified log
   private logLine(log: HTMLElement, data, highlight) {
     const line = document.createElement('pre');
+    // line.textContent = JSON.stringify("Vous disposez de " + data.me.gold + " Gold");
     line.textContent = JSON.stringify(data);
 
     if (highlight) {
