@@ -12,14 +12,20 @@ import WindowState = overwolf.windows.WindowStateEx;
 class InGame extends AppWindow {
   private static _instance: InGame;
   private _gameEventsListener: OWGamesEvents;
-  private _eventsLog: HTMLElement;
-  private _infoLog: HTMLElement;
+  // private _eventsLog: HTMLElement;
+  private _damageLog: HTMLElement;
+   private _defaultLog: HTMLElement;
+  private _goldLog: HTMLElement;
+  private _boardLog: HTMLElement;
 
   private constructor() {
     super(kWindowNames.inGame);
 
-    this._eventsLog = document.getElementById('eventsLog');
-    this._infoLog = document.getElementById('infoLog');
+    this._boardLog = document.getElementById('boardLog');
+     this._defaultLog = document.getElementById('defaultLog');
+    this._damageLog = document.getElementById('dmgLog');
+    this._goldLog = document.getElementById('goldLog');
+    // this._eventsLog = document.getElementById('eventsLog');
 
     this.setToggleHotkeyBehavior();
     this.setToggleHotkeyText();
@@ -46,28 +52,20 @@ class InGame extends AppWindow {
         },
         gameFeatures
       );
-
       this._gameEventsListener.start();
     }
   }
 
-  private onInfoUpdates(info) {
-    console.log("test");
-    this.logLine(this._infoLog, info, false);
+   private  onInfoUpdates(info) {
+  
+      this.logLine(info);
+
   }
 
   // Special events will be highlighted in the event log
   private onNewEvents(e) {
-   
-    const shouldHighlight = e.events.some(event => {
 
-      switch (event.name) {
-        case 'gold':
-          return true;
-      }
-      return false
-    });
-    this.logLine(this._eventsLog, e, shouldHighlight);
+    this.logLine( e);
   }
 
   // Displays the toggle minimize/restore hotkey in the window header
@@ -94,29 +92,16 @@ class InGame extends AppWindow {
         this.currWindow.restore();
       }
     }
-
     OWHotkeys.onHotkeyDown(kHotkeys.toggle, toggleInGameWindow);
   }
 
   // Appends a new line to the specified log
-  private logLine(log: HTMLElement, data, highlight) {
+  private logLine(data) {
     const line = document.createElement('pre');
-    // line.textContent = JSON.stringify("Vous disposez de " + data.me.gold + " Gold");
-    line.textContent = JSON.stringify(data);
 
-    if (highlight) {
-      line.className = 'highlight';
-    }
+    document.getElementById('dmgLog').innerHTML = data.match_info.local_player_damage.split("\"")[5] + " ==> " + data.match_info.local_player_damage.split("\"")[8] ; // dmg
+    document.getElementById('goldLog').innerHTML = data.me.gold; // gold 
 
-    // Check if scroll is near bottom
-    const shouldAutoScroll =
-      log.scrollTop + log.offsetHeight >= log.scrollHeight - 10;
-
-    log.appendChild(line);
-
-    if (shouldAutoScroll) {
-      log.scrollTop = log.scrollHeight;
-    }
   }
 
   private async getCurrentGameClassId(): Promise<number | null> {

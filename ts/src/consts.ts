@@ -57,13 +57,26 @@ export const kGamesFeatures = new Map<number, string[]>([
       'me',
 
       'store',
-  
+
       'board',
-      // 'bench', // not working ?
-      // 'carousel',// not working ?
+
+      'bench',
+
       'match_info',
+
     ]
   ],
+  //TFT game events 
+  [
+    21570,
+    [
+      'round_start',
+      'round_end',
+      'battle_end',
+      'battle_start'
+    ]
+  ],
+
   // Escape From Tarkov
   [
     21634,
