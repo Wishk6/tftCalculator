@@ -1,113 +1,118 @@
 body {
   background-color: #333333;
+  color: #f5f5f5;
   margin: 0px;
-  display: flex;
-  flex-direction: column;
-  font-size: 14px;
+  font-size: 22px;
   min-height: 100vh;
   overflow: hidden;
 }
 
-main {
-  display: flex;
-  flex: 1;
-  position: relative;
-  padding: 38px;
+:root {
+  --cptBg: #0B3044;
+  --border: #ffe850;
 }
 
-h1 {
-  font-family: "Roboto Mono", sans-serif;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 18px;
-  color: #d5d5d5;
+.logo {
+  width: 128px;
+  height: auto;
 }
 
-#ad {
-  margin-top: auto;
-  height: 300px;
-  width: 400px;
-  background-color: #454545;
-  border-radius: 4px;
-}
-
-#other {
-  display: flex;
-  flex-direction: column;
-  flex: 0 0 auto;
-  width: 210px;
-}
-
-.logColumn {
-  display: grid;
-  grid-template-columns: repeat(2, 40vw);
-  grid-template-rows: repeat(2, auto);
-  grid-column-gap: 50px;
-  grid-row-gap: 30px;
-}
-
-.dataText {
-  display: flex;
-  justify-content: center;
-  text-align: center;
-  border: solid 2px #DABF80;
+.title {
+  font-size: 32px;
+  padding: 10px;
   border-radius: 10px;
-  color: #EFDECA;
+  border: solid 1px var(--border);
+}
+
+.title2 { 
+  font-size: 28px;
+  text-align: center;
+}
+
+.content {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.damageLog {
+  margin: 30px;
+  padding: 30px;
+  border-radius: 20px;
+  background: var(--cptBg);
+  border: solid 1px var(--border);
+}
+
+
+/* select champ div */
+.visualisation {
+  margin: 30px;
+  padding: 15px;
+  border-radius: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  background: var(--cptBg);
+  border: solid 1px var(--border);
+}
+
+
+.selectionDiv {
+  display: flex;
+  gap:10px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.selectedChamp {
+  width: 100px;
+  border: solid 1px var(--border);
+  border-radius: 10px;
+}
+
+.equippedChamp {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+.itemEquipped {
+  border-radius: 100px;
+  border: solid 1px var(--border)
+}
+
+
+/* types à selec */
+.types {
+  background: var(--cptBg);
+  border-right: solid 1px var(--border);
+}
+
+
+
+.itemsGrid {
+  display: grid;
+  padding: 5px;
+  grid-template-columns: repeat(6, 28px);
+  gap: 4px;
+  grid-template-rows: repeat(auto, 28px);
+}
+
+.icon {
+  width: 28px;
+  height: auto;
+}
+
+
+.icon:hover {
+
+  transform: scale(1.1);
+  box-shadow: 0px 0px 6px yellow;
+}
+
+.selectedItem {
+  display:flex;
   padding:10px;
-}
-
-.dataText pre {
-  white-space: pre-line;
-  word-break: break-word;
-  margin: 5px 0;
-}
-
-#other>#infoParagraph {
-  font-style: normal;
-  font-weight: normal;
-  font-size: 16px;
-  line-height: 150%;
-  color: #8d8d8d;
-}
-
-#other>#sampleAdText {
-  margin: 1em 0 0.5em 0;
-  font-family: "Roboto Mono", sans-serif;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 13px;
-  line-height: 133.59%;
-  align-self: center;
-  color: #8d8d8d;
-}
-
-#other>p {
-  font-style: normal;
-  font-weight: normal;
-  font-size: 16px;
-  line-height: 150%;
-}
-
-.highlight {
-  color: #00defa;
-}
-
-button.logCopy {
-  background: #464646;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
-  border-radius: 2px;
-  color: #d5d5d5;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 12px;
-  line-height: 120%;
-  padding: 6px 8px;
-  margin-top: 10px;
-  cursor: pointer;
-  align-self: flex-start;
-}
-
-button.logCopy:hover {
-  background: #8d8d8d;
-  color: #ffffff;
+  border-left: solid 1px var(--border);
 }

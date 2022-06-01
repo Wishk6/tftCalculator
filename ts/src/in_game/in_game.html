@@ -6,7 +6,6 @@
   <link rel="stylesheet" href="../../css/general.css" />
   <link rel="stylesheet" href="../../css/header.css" />
   <link rel="stylesheet" href="../../css/ingame.css" />
-  <link rel="stylesheet" href="../../css/modal.css" />
   <title>Overwolf Sample App - In-Game page</title>
 </head>
 
@@ -14,8 +13,8 @@
   <!-- -------------------------------- Header ------------------------------- -->
 
   <header id="header" class="app-header">
-    <img src="../../dist/img/header_icon.svg" />
-    <h1>TeamFight Tactics Calculator</h1>
+    <img class="logo" src="../../img/tftCalculatorLogo.png" />
+    <h1 class="title">TeamFight Tactics Calculator</h1>
     <h1 class="hotkey-text">
       Afficher/Cacher l'interface :
       <kbd id="hotkey"></kbd>
@@ -27,22 +26,116 @@
     </div>
   </header>
 
+  <div class="content">
+
+    <div class="damageLog">
+      <h2 class="title2">Dégats</h2>
+      <div id="dmgLog"></div>
+    </div>
+
+  </div>
+  <div class="visualisation">
+
+    <div class="selectionDiv">
+      <select name="" id="">
+        <option value="0">Kai'sa</option>
+        <option value="1">Kai'sa</option>
+        <option value="2">Kai'sa</option>
+        <option value="3"></option>
+        <option value="4"></option>
+        <option value="5"></option>
+        <option value="6"></option>
+        <option value="7"></option>
+        <option value="8"></option>
+        <option value="9"></option>
+      </select>
+
+      <div>
+        <img class="selectedChamp" src="../../img/items/ThiefsGloves.png" alt="">
+      </div>
+
+      <div class="equippedWrapper">
+        <img class="itemEquipped" src="../../img//items/ThiefsGloves.png" alt="">
+        <img class="itemEquipped" src="../../img/items/ThiefsGloves.png" alt="">
+      </div>
+
+    </div>
+
+    <div class="types">
+
+    </div>
+
+
+    <div class="itemsGrid">
+
+      <img src="../../img/items/arcanistEmblem.png" class="icon" alt="">
+      <img src="../../img/items/Archangel.png" class="icon" alt="">
+      <img src="../../img/items/assassinEmblem.png" class="icon" alt="">
+      <img src="../../img/items/bansheesclaw.png" class="icon" alt="">
+      <img src="../../img/items/Bloodthirster.png" class="icon" alt="">
+      <img src="../../img/items/BlueBuff.png" class="icon" alt="">
+      <img src="../../img/items/BrambleVest.png" class="icon" alt="">
+      <img src="../../img/items/ChaliceofPower.png" class="icon" alt="">
+      <img src="../../img/items/ChallengerEmblem.png" class="icon" alt="">
+      <img src="../../img/items/ChemtechEmblem.png" class="icon" alt="">
+      <img src="../../img/items/Deathblade.png" class="icon" alt="">
+      <img src="../../img/items/DebonairEmblem.png" class="icon" alt="">
+      <img src="../../img/items/DragonsClaw.png" class="icon" alt="">
+      <img src="../../img/items/EdgeofNight.png" class="icon" alt="">
+      <img src="../../img/items/FrozenHeart.png" class="icon" alt="">
+      <img src="../../img/items/GargoyleStoneplate.png" class="icon" alt="">
+      <img src="../../img/items/GiantSlayer.png" class="icon" alt="">
+      <img src="../../img/items/GuinsoosRageblade.png" class="icon" alt="">
+      <img src="../../img/items/HextechEmblem.png" class="icon" alt="">
+      <img src="../../img/items/InfinityEdge.png" class="icon" alt="">
+      <img src="../../img/items/IonicSpark.png" class="icon" alt="">
+      <img src="../../img/items/JeweledGauntlet.png" class="icon" alt="">
+      <img src="../../img/items/LastWhisper.png" class="icon" alt="">
+      <img src="../../img/items/LocketoftheIronSolari.png" class="icon" alt="">
+      <img src="../../img/items/Morellonomicon.png" class="icon" alt="">
+      <img src="../../img/items/MutantEmblem.png" class="icon" alt="">
+      <img src="../../img/items/Quicksilver.png" class="icon" alt="">
+      <img src="../../img/items/RabadonsDeathcap.png" class="icon" alt="">
+      <img src="../../img/items/RapidFirecannon.png" class="icon" alt="">
+      <img src="../../img/items/Redemption.png" class="icon" alt="">
+      <img src="../../img/items/RunaansHurricane.png" class="icon" alt="">
+      <img src="../../img/items/ShroudofStillness.png" class="icon" alt="">
+      <img src="../../img/items/SpearofShojin.png" class="icon" alt="">
+      <img src="../../img/items/StatikkShiv.png" class="icon" alt="">
+      <img src="../../img/items/StrikerEmblem.png" class="icon" alt="">
+      <img src="../../img/items/SunfireCape.png" class="icon" alt="">
+      <img src="../../img/items/TacticiansCrown.png" class="icon" alt="">
+      <img src="../../img/items/ThiefsGloves.png" class="icon" alt="">
+      <img src="../../img/items/TitansResolve.png" class="icon" alt="">
+      <img src="../../img/items/WarmogsArmor.png" class="icon" alt="">
+      <img src="../../img/items/ZekesHerald.png" class="icon" alt="">
+      <img src="../../img/items/Zephyr.png" class="icon" alt="">
+      <img src="../../img/items/ZzRotPortal.png" class="icon" alt="">
+    </div>
+
+    <div class="selectedItem">
+      <h3 class="title2">Dégats Théoriques</h3>
+    </div>
+
+  </div>
+
+
+
+
   <!-- --------------------------------- Main -------------------------------- -->
   <main>
 
     <div id="logs">
-  
+
 
       <div id="infoUpdates" class="logColumn">
-        
-        <div id="dmgLog" class="dataText"></div>
-        <div id="defaultLog" class="dataText"></div>
-        <div id="goldLog" class="dataText"></div>
-        <!-- <div id="boardLog" class="dataText"></div> -->
+
       </div>
 
 
+
     </div>
+
 
   </main>
 

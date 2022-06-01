@@ -12,20 +12,15 @@ import WindowState = overwolf.windows.WindowStateEx;
 class InGame extends AppWindow {
   private static _instance: InGame;
   private _gameEventsListener: OWGamesEvents;
-  // private _eventsLog: HTMLElement;
+   private _eventsLog: HTMLElement;
   private _damageLog: HTMLElement;
-   private _defaultLog: HTMLElement;
-  private _goldLog: HTMLElement;
-  private _boardLog: HTMLElement;
 
   private constructor() {
     super(kWindowNames.inGame);
 
-    this._boardLog = document.getElementById('boardLog');
-     this._defaultLog = document.getElementById('defaultLog');
     this._damageLog = document.getElementById('dmgLog');
-    this._goldLog = document.getElementById('goldLog');
-    // this._eventsLog = document.getElementById('eventsLog');
+
+    this._eventsLog = document.getElementById('eventsLog');
 
     this.setToggleHotkeyBehavior();
     this.setToggleHotkeyText();
@@ -56,16 +51,18 @@ class InGame extends AppWindow {
     }
   }
 
-   private  onInfoUpdates(info) {
-  
-      this.logLine(info);
+  private async onInfoUpdates(info: any) {
 
+    if (info.match_info.local_player_damage != undefined) {
+      this.logLineDmg(info)
+    }
+ 
   }
 
   // Special events will be highlighted in the event log
-  private onNewEvents(e) {
+  private onNewEvents(e: { events: any[]; }) {
 
-    this.logLine( e);
+    this._eventsLog.innerHTML = JSON.stringify(e.events[0]); // gold 
   }
 
   // Displays the toggle minimize/restore hotkey in the window header
@@ -96,12 +93,14 @@ class InGame extends AppWindow {
   }
 
   // Appends a new line to the specified log
-  private logLine(data) {
-    const line = document.createElement('pre');
+  private logLineDmg(data: { match_info: { local_player_damage: string; }; }) {
 
-    document.getElementById('dmgLog').innerHTML = data.match_info.local_player_damage.split("\"")[5] + " ==> " + data.match_info.local_player_damage.split("\"")[8] ; // dmg
-    document.getElementById('goldLog').innerHTML = data.me.gold; // gold 
+    let regCleaner = new RegExp('', '');
+    let dmgData = data.match_info.local_player_damage.replaceAll("\"","");
 
+    this._damageLog.innerHTML = JSON.stringify(dmgData); // dmg
+
+    // https://leagueoflegends.fandom.com/wiki/Category:TFT_item_icons
   }
 
   private async getCurrentGameClassId(): Promise<number | null> {

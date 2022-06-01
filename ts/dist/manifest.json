@@ -8,10 +8,10 @@
     "minimum-overwolf-version": "0.160.0",
     "description": "TFT Calculator",
     "dock_button_title": "Sample - TS",
-    "icon": "icons/IconMouseOver.png",
-    "icon_gray": "icons/IconMouseNormal.png",
-    "launcher_icon": "icons/desktop-icon.ico",
-    "window_icon": "icons/IconMouseOver.png"
+    "icon": "icons/tftCalculatorLogoLauncher.png",
+    "icon_gray": "icons/tftCalculatorLogo.png",
+    "launcher_icon": "icons/tftCalculatorLogo.ico",
+    "window_icon": "icons/tftCalculatorLogoLauncher.png"
   },
   "permissions": [
     "Hotkeys",
